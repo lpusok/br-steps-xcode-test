@@ -41,7 +41,8 @@ workflows:
 
   ci-objc_headless_mode:
     envs:
-    - SAMPLE_APP_URL: https://github.com/bitrise-samples/sample-apps-ios-simple-objc-with-uitest.git
+    # - SAMPLE_APP_URL: https://github.com/bitrise-samples/sample-apps-ios-simple-objc-with-uitest.git
+    - SAMPLE_APP_URL: /Users/lpusok/Develop/go/src/github.com/bitrise-samples/sample-apps-ios-simple-objc-with-uitest
     - BITRISE_PROJECT_PATH: ios-simple-objc/ios-simple-objc.xcodeproj
     - BITRISE_SCHEME: ios-simple-objc
     - SIMULATOR_DEVICE: iPhone 6 Plus
@@ -146,7 +147,8 @@ workflows:
             #!/bin/bash
             set -e
             set -v
-            git clone $SAMPLE_APP_URL .
+            # git clone $SAMPLE_APP_URL .
+            cp -r $SAMPLE_APP_URL/* . 
     - certificate-and-profile-installer: {}
     - path::./:
         inputs:
